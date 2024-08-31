@@ -23,7 +23,7 @@ Esta API permite a criação, consulta, busca, atualização e exclusão de pess
 
 3. **Configure o banco de dados PostgreSQL:**
 
-    Crie o banco de dados e o usuário conforme as configurações no `.env`.
+    Crie o banco de dados no PostgreSQL e o usuário conforme as configurações no `.env`.
 
 4. **Aplicar as migrações:**
 
@@ -38,7 +38,7 @@ Esta API permite a criação, consulta, busca, atualização e exclusão de pess
     python manage.py runserver
     ```
 
-## Endpoints Disponíveis
+## Funcionalidades Disponíveis
 
 ### 1. **Criar uma Pessoa**
 
@@ -81,17 +81,6 @@ Esta API permite a criação, consulta, busca, atualização e exclusão de pess
 ### 4. **Atualizar uma Pessoa**
 
 - **URL:** `PUT /api/pessoas/{id}/`
-- **Corpo da Requisição:**
-
-    ```json
-    {
-        "apelido": "jose_updated",
-        "nome": "José Roberto Atualizado",
-        "nascimento": "2000-10-01",
-        "stack": ["C#", "Node", "Oracle", "React"]
-    }
-    ```
-
 - **Respostas:**
     - **200 OK**: Pessoa atualizada com sucesso.
     - **422 Unprocessable Entity**: Dados inválidos.
@@ -102,7 +91,7 @@ Esta API permite a criação, consulta, busca, atualização e exclusão de pess
 - **URL:** `DELETE /api/pessoas/{id}/`
 - **Respostas:**
     - **204 No Content**: Pessoa excluída com sucesso.
-    - **404 Not Found**: Pessoa não encontrada.
+    - **400 Bad Request**: Pessoa não encontrada.
 
 ## Executando os Testes
 
@@ -110,3 +99,8 @@ Para rodar os testes unitários, execute:
 
 ```bash
 python manage.py test
+```
+
+## Estrutura administrativa do Django
+
+É possível acessar o /admin/ do Django e verificar se os dados das Pessoas estão realmente armazenados. O SuperUser está disponível no arquivo .env.
